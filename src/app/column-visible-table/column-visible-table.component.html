@@ -1,0 +1,11 @@
+
+
+ <p><strong>Show/Hide Columns:</strong></p>
+    <label *ngFor="let col of columns()">
+      <input
+        type="checkbox"
+        [checked]="visibleColumns().has(col)"
+        (change)="toggleVisibility(col)"
+      />
+      {{ col }}
+    </label>

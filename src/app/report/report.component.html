@@ -1,0 +1,63 @@
+<div class="two-column-layout">
+  <!-- Left Panel: Font Settings (50%) -->
+  <div class="left-panel">
+    <h4>Font Settings</h4>
+
+    <div class="control-group">
+      <label for="fontSelect">Choose font style:</label>
+      <select id="fontSelect" [value]="selectedFont()" (change)="changeFont($event)">
+        <option *ngFor="let font of fontOptions" [value]="font">{{ font }}</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="fontSizeSelect">Font Size:</label>
+      <select id="fontSizeSelect" [value]="fontSize()" (change)="changeFontSize($event)">
+        <option value="12px">12px</option>
+        <option value="14px">14px</option>
+        <option value="16px">16px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+      </select>
+    </div>
+
+<button class="small-button" (click)="downloadPDF()">
+  Download PDF
+</button>
+  </div>
+
+  <!-- Right Panel: Column Color Picker (50%) -->
+  <div class="right-panel">
+    <app-column-color-picker
+      [columns]="displayedColumns"
+      [columnColors]="columnColors()"
+      (columnColorsChange)="columnColors.set($event)"
+    ></app-column-color-picker>
+  </div>
+</div>
+
+
+
+
+
+<div class="visibility-box">
+  <app-column-visible-table
+    [columns]="displayedColumns"
+    [visibleColumns]="visibleColumns()"
+    (visibilityChanged)="onVisibilityChange($event)"
+  ></app-column-visible-table>
+</div>
+
+
+
+
+
+<app-font-style-table
+  [data]="reportList()"
+  [columns]="getVisibleColumns()"
+  [fontClass]="selectedFont()"
+  [fontSize]="fontSize()"
+  [columnColors]="columnColors()"
+></app-font-style-table>
+
+

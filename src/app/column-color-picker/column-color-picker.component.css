@@ -1,0 +1,27 @@
+.color-picker-box {
+  background: #f0f4ff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+.color-row-single-line {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 16px;
+  align-items: center;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  white-space: nowrap;
+}

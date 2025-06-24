@@ -1,0 +1,23 @@
+<div class="color-picker-box">
+  <h4>Set Column Background Color</h4>
+
+  <label for="columnSelect">Select Column:</label>
+  <select id="columnSelect" [(ngModel)]="selectedColumn">
+    <option *ngFor="let col of columns" [value]="col">{{ col }}</option>
+  </select>
+
+  <label for="colorPicker">Choose Color:</label>
+  <input
+    id="colorPicker"
+    type="color"
+    [value]="columnColors[selectedColumn] || '#ffffff'"
+    (input)="updateColor(selectedColumn, $event)"
+    style="margin-left: 8px;"
+  />
+  <button (click)="resetColors()" style="margin-left: 10px; padding: 6px 12px;">
+  Reset Colors
+</button>
+</div>
+
+
+

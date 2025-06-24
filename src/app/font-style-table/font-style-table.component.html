@@ -1,0 +1,26 @@
+
+
+<table
+  [ngClass]="fontClass"
+  [style.fontSize]="fontSize"
+  style="width: 100%; border-collapse: collapse;"
+  border="1"
+  cellpadding="8"
+  cellspacing="0"
+>
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td
+        *ngFor="let col of columns"
+        [style.backgroundColor]="columnColors[col] || ''"
+      >
+        {{ getNestedValue(row, col) }}
+      </td>
+    </tr>
+  </tbody>
+</table>
